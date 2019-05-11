@@ -1,0 +1,101 @@
+<?php
+/* Smarty version 3.1.33, created on 2019-03-02 03:07:50
+  from 'D:\xampp1\htdocs\php05_eshopper\views\layouts\cart_detail.php' */
+
+/* @var Smarty_Internal_Template $_smarty_tpl */
+if ($_smarty_tpl->_decodeProperties($_smarty_tpl, array (
+  'version' => '3.1.33',
+  'unifunc' => 'content_5c79e57603cbf4_70121338',
+  'has_nocache_code' => false,
+  'file_dependency' => 
+  array (
+    'cbd76eb5125284cc1bfed0008cc23421b2ffb6e6' => 
+    array (
+      0 => 'D:\\xampp1\\htdocs\\php05_eshopper\\views\\layouts\\cart_detail.php',
+      1 => 1551492467,
+      2 => 'file',
+    ),
+  ),
+  'includes' => 
+  array (
+  ),
+),false)) {
+function content_5c79e57603cbf4_70121338 (Smarty_Internal_Template $_smarty_tpl) {
+?><section id="cart_items">
+	<div class="container">
+		<div class="breadcrumbs">
+			<ol class="breadcrumb">
+				<li><a href="#">Home</a></li>
+				<li class="active">Shopping Cart</li>
+			</ol>
+		</div>
+		<div class="table-responsive cart_info">
+			<table class="table table-condensed">
+				<thead>
+					<tr class="cart_menu">
+						<td class="image">Sản phẩm</td>
+						<td class="description"></td>
+						<td class="price">Giá</td>
+						<td class="quantity">Số lượng</td>
+						<td class="total">Thành tiền</td>
+						<td></td>
+					</tr>
+				</thead>
+				<tbody>
+					<?php
+$_from = $_smarty_tpl->smarty->ext->_foreach->init($_smarty_tpl, $_SESSION['cart'], 'ct');
+if ($_from !== null) {
+foreach ($_from as $_smarty_tpl->tpl_vars['ct']->value) {
+?>
+					<tr>
+						<td class="cart_product" valign="top">
+							<a href="product_detail.php?id=<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+"><img src="images/home/<?php echo $_smarty_tpl->tpl_vars['ct']->value['picture'];?>
+" style="width: 200px;"></a>
+						</td>
+						<td class="cart_description" valign="top">
+							<h4 style="font-size: 14px; margin-top: -5px;"><a href="product_detail.php?id=<?php echo $_smarty_tpl->tpl_vars['ct']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['ct']->value['name'];?>
+</a></h4>
+							
+						</td>
+						<td class="cart_price" valign="top">
+							<p><?php echo number_format($_smarty_tpl->tpl_vars['ct']->value['price']);?>
+ <sup>đ</sup></p>
+						</td>
+						<td class="cart_quantity" valign="top" style="margin-top: 4px;">
+							<div class="cart_quantity_button">
+								<a class="cart_quantity_up" href=""> + </a>
+								<input class="cart_quantity_input" type="text" name="quantity" value="1" autocomplete="off" size="2">
+								<a class="cart_quantity_down" href=""> - </a>
+							</div>
+						</td>
+						<td class="cart_total">
+							<p class="cart_total_price"><?php echo number_format($_smarty_tpl->tpl_vars['ct']->value['price']*$_smarty_tpl->tpl_vars['ct']->value['sl']);?>
+ <sup>đ</sup></p>
+						</td>
+						<td class="cart_delete">
+							<a class="cart_quantity_delete" href=""><i class="fa fa-times"></i></a>
+						</td>
+					</tr>
+					<?php
+}
+}
+$_smarty_tpl->smarty->ext->_foreach->restore($_smarty_tpl, 1);?>
+					<!-- hàng tổng cộng -->
+					<tr>
+						<td colspan="4" class="card-total" style="text-align: right;">Tổng cộng:</td>
+						<td class="card-total" style="text-align: right;">
+							<p class="card-total-price" style="text-align: right; font-size: 16px;"><?php echo number_format(0);?>
+ <sup>đ</sup></p>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</section> <!--/#cart_items-->
+<p>
+	<a href="#" class="btn btn-primary float-right">Thanh toán</a>
+</p><?php }
+}
